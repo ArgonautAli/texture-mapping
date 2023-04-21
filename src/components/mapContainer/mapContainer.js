@@ -16,7 +16,6 @@ function Map() {
         <h1>Loading...</h1>
       ) : (
         <>
-          {/* {console.log("gm", GoogleMap)} */}
           <GoogleMap
             mapContainerClassName="map-container"
             center={center}
