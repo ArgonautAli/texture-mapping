@@ -1,4 +1,3 @@
-import Layout from "../../components/layout/layout";
 import Map from "../../components/mapContainer/mapContainer";
 import "./mapPage.css";
 import React, {
@@ -9,6 +8,7 @@ import React, {
   useState,
 } from "react";
 import * as htmlToImage from "html-to-image";
+import { SceneWithSpinningBoxes } from "../../components/babylonTest/babylonTest";
 
 export default function MapPage() {
   // const ref = createRef(null);
@@ -40,7 +40,7 @@ export default function MapPage() {
     setImgData(a);
     a.href = image;
     a.download = createFileName(extension, name);
-
+    console.log("img", a.href);
     a.click();
   };
 
@@ -63,6 +63,7 @@ export default function MapPage() {
         <Map />
       </div>
       {imgData ? <img src={imgData.href} width={100} height={100} /> : null}
+      <SceneWithSpinningBoxes />
     </>
   );
 }
