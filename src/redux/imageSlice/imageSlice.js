@@ -1,19 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { value: { inputVal: "" } };
-
 export const imageSlice = createSlice({
   name: "image",
-
+  initialState: { value: { imgVal: "" } },
   reducers: {
     getImage: (state, action) => {
       state.value = action.payload;
     },
 
     clrImage: (state) => {
-      state = initialState;
+      state = null;
     },
   },
 });
 
-export const { getImg, clrImage } = imageSlice.actions;
+export const { getImage, clrImage } = imageSlice.actions;

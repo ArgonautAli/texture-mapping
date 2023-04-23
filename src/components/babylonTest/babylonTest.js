@@ -7,12 +7,14 @@ import {
   useHover,
 } from "react-babylonjs";
 import { Vector3, Color3 } from "@babylonjs/core";
+import { useSelector } from "react-redux";
 
 const DefaultScale = new Vector3(1, 1, 1);
 const BiggerScale = new Vector3(1.25, 1.25, 1.25);
 
 const SpinningBox = (props) => {
   // access Babylon scene objects with same React hook as regular DOM elements
+  const imgData = useSelector((state) => state.image.value.imgVal);
   const boxRef = useRef(null);
 
   const [clicked, setClicked] = useState(false);
@@ -49,14 +51,14 @@ const SpinningBox = (props) => {
         // diffuseColor={hovered ? props.hoveredColor : props.color}
         // specularColor={Color3.Black()}
       >
-        {console.log("{props.tex}", props.tex)}
-        <texture url={props.tex} />
+        {/* {console.log("{props.tex}", props.tex)} */}
+        <texture url={imgData} />
       </standardMaterial>
     </box>
   );
 };
 
-export const SceneWithSpinningBoxes = ({ tex }) => (
+export const SceneWithSpinningBoxes = () => (
   <div>
     <Engine antialias adaptToDeviceRatio canvasId="babylonJS">
       <Scene>
@@ -77,14 +79,12 @@ export const SceneWithSpinningBoxes = ({ tex }) => (
           position={new Vector3(-2, 0, 0)}
           color={Color3.FromHexString("#EEB5EB")}
           hoveredColor={Color3.FromHexString("#C26DBC")}
-          tex={tex}
         />
         <SpinningBox
           name="right"
           position={new Vector3(2, 0, 0)}
           color={Color3.FromHexString("#C8F4F9")}
           hoveredColor={Color3.FromHexString("#3CACAE")}
-          tex={tex}
         />
       </Scene>
     </Engine>

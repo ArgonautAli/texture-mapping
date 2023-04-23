@@ -10,12 +10,18 @@ import React, {
 import * as htmlToImage from "html-to-image";
 import { SceneWithSpinningBoxes } from "../../components/babylonTest/babylonTest";
 import { useSelector, useDispatch } from "react-redux";
+import { getImage } from "../../redux/imageSlice/imageSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function MapPage() {
   // const ref = createRef(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [imgData, setImgData] = useState();
   const ref = useRef();
+  const data = useSelector((state) => state.image);
+
+  console.log("data", data);
 
   // useEffect(()=>{
 
@@ -41,16 +47,19 @@ export default function MapPage() {
     const a = document.createElement("a");
     setImgData(a);
     a.href = image;
-    a.download = createFileName(extension, name);
+    // a.download = createFileName(extension, name);
     console.log("img", a.href);
+    dispatch(getImage({ imgVal: a.href }));
     a.click();
   };
 
   const downloadScreenshot = () => {
     console.log("ref?.current?.childNodes[0]", ref?.current?.childNodes[0]);
+
     const gmStyle =
       ref?.current?.childNodes[0]?.childNodes[0]?.childNodes[0].childNodes[0];
     takeScreenShot(gmStyle).then(download);
+    navigate("/shapes");
   };
 
   return (
