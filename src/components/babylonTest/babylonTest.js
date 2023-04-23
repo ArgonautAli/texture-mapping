@@ -46,14 +46,17 @@ const SpinningBox = (props) => {
     >
       <standardMaterial
         name={`${props.name}-mat`}
-        diffuseColor={hovered ? props.hoveredColor : props.color}
-        specularColor={Color3.Black()}
-      />
+        // diffuseColor={hovered ? props.hoveredColor : props.color}
+        // specularColor={Color3.Black()}
+      >
+        {console.log("{props.tex}", props.tex)}
+        <texture url={props.tex} />
+      </standardMaterial>
     </box>
   );
 };
 
-export const SceneWithSpinningBoxes = () => (
+export const SceneWithSpinningBoxes = ({ tex }) => (
   <div>
     <Engine antialias adaptToDeviceRatio canvasId="babylonJS">
       <Scene>
@@ -66,7 +69,7 @@ export const SceneWithSpinningBoxes = () => (
         />
         <hemisphericLight
           name="light1"
-          intensity={0.7}
+          intensity={3}
           direction={Vector3.Up()}
         />
         <SpinningBox
@@ -74,12 +77,14 @@ export const SceneWithSpinningBoxes = () => (
           position={new Vector3(-2, 0, 0)}
           color={Color3.FromHexString("#EEB5EB")}
           hoveredColor={Color3.FromHexString("#C26DBC")}
+          tex={tex}
         />
         <SpinningBox
           name="right"
           position={new Vector3(2, 0, 0)}
           color={Color3.FromHexString("#C8F4F9")}
           hoveredColor={Color3.FromHexString("#3CACAE")}
+          tex={tex}
         />
       </Scene>
     </Engine>

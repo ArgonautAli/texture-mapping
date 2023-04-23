@@ -1,0 +1,32 @@
+.intro-container {
+  display: flex;
+  justify-content: center;
+  padding: 60px;
+  flex-direction: column;
+}
+
+.intro-container-upper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading-text {
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.get-started-btn {
+  display: flex;
+  justify-content: center;
+  background-color: #901027;
+  font-weight: 500;
+  color: white;
+  width: 160px;
+  height: 44px;
+  border-radius: 24px;
+  align-content: center;
+  align-items: center;
+  cursor: pointer;
+}

@@ -9,9 +9,11 @@ import React, {
 } from "react";
 import * as htmlToImage from "html-to-image";
 import { SceneWithSpinningBoxes } from "../../components/babylonTest/babylonTest";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function MapPage() {
   // const ref = createRef(null);
+  const dispatch = useDispatch();
   const [imgData, setImgData] = useState();
   const ref = useRef();
 
@@ -35,7 +37,7 @@ export default function MapPage() {
     return dataURI;
   };
 
-  const download = (image, { name = "img", extension = "jpg" } = {}) => {
+  const download = (image, { name = "img", extension = "png" } = {}) => {
     const a = document.createElement("a");
     setImgData(a);
     a.href = image;
@@ -51,19 +53,25 @@ export default function MapPage() {
     takeScreenShot(gmStyle).then(download);
   };
 
-  console.log(
-    "a",
-    ref?.current?.childNodes[0]?.childNodes[0]?.childNodes[0].childNodes[0]
-  );
-
   return (
     <>
-      <button onClick={downloadScreenshot}>Download screenshot</button>
-      <div className="map-page-container" ref={ref}>
-        <Map />
+      <div className="map-container-box gap-x-6">
+        <div className="map-page-container" ref={ref}>
+          <Map />
+        </div>
+        <div className="text-container-map">
+          <ul>
+            <li>1. Navigate to area of the map you want to capture</li>
+            <li>2. Click on continue button</li>
+          </ul>
+
+          <button onClick={downloadScreenshot} className="get-started-btn mt-4">
+            Continue
+          </button>
+        </div>
       </div>
       {imgData ? <img src={imgData.href} width={100} height={100} /> : null}
-      <SceneWithSpinningBoxes />
+      {/* {imgData && <SceneWithSpinningBoxes tex={imgData?.href} />} */}
     </>
   );
 }

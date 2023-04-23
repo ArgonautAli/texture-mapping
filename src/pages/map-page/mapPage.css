@@ -1,4 +1,16 @@
-.map-page-container {
+.map-container-box {
   display: flex;
   justify-content: center;
+  padding: 60px;
+  flex-direction: row;
+}
+
+.text-container-map {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 14px;
 }
