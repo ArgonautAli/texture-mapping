@@ -1,0 +1,36 @@
+.shapes-container {
+  display: flex;
+  justify-content: center;
+  padding: 60px;
+  /* flex-direction: column; */
+}
+
+.list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 16px;
+  width: 160px;
+  /* padding: 36px; */
+}
+
+.list-elements {
+  cursor: pointer;
+  /* margin: 16px 0px 16px 0px; */
+  font-weight: 500;
+}
+
+.list-elements:hover {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0px 8px 0px 8px;
+  margin: 8px 0px 8px 0px;
+  font-weight: 500;
+}
+
+.select-shape-text {
+  font-weight: 900;
+  color: black;
+  font-size: 18px;
+}

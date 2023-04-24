@@ -1,16 +1,43 @@
 import { SceneWithSpinningBoxes } from "../../components/babylonTest/babylonTest";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import "./shapes.css";
+import { useState } from "react";
+import { getShape } from "../../redux/shapeSlice/shapeSlice";
 
 function Shapes() {
-  const imgData = useSelector((state) => state.value.imgVal);
+  const dispatch = useDispatch();
+  const imgData = useSelector((state) => state.image.value.imgVal);
+  const [selectedShape, setSelectedShape] = useState("");
   console.log("imgData", imgData);
+  const list = ["Cuboid", "Sphere", "Disc", "Torus", "Capsule"];
+
+  function shapeSelectorHandler(el) {
+    setSelectedShape(el);
+    dispatch(getShape({ shapeVal: el }));
+  }
   return (
     <>
-      <div className="flex justify-center align-center">
-        <div>list</div>
+      <div className="shapes-container flex justify-center align-center">
+        <div className="list-container gap-y-6">
+          <ul>
+            <p className=".select-shape-text"> Select Shape</p>
+            {list.map((el) => {
+              return (
+                <li
+                  className="list-elements "
+                  onClick={() => {
+                    shapeSelectorHandler(el);
+                  }}
+                >
+                  {el}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <div
           className="flex justify-center align-center"
-          style={{ height: "50%", width: "50%" }}
+          style={{ width: "50%" }}
         >
           {" "}
           <SceneWithSpinningBoxes tex={imgData} />
