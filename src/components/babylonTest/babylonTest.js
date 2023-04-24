@@ -18,9 +18,6 @@ const SpinningCapsule = (props) => {
 
   const boxRef = useRef(null);
 
-  const [clicked, setClicked] = useState(false);
-  useClick(() => setClicked((clicked) => !clicked), boxRef);
-
   const [hovered, setHovered] = useState(false);
   useHover(
     () => setHovered(true),
@@ -45,7 +42,7 @@ const SpinningCapsule = (props) => {
       ref={boxRef}
       size={2}
       position={props.position}
-      scaling={clicked ? BiggerScale : DefaultScale}
+      scaling={DefaultScale}
     >
       <standardMaterial
         name={`${props.name}-mat`}
@@ -60,58 +57,7 @@ const SpinningCapsule = (props) => {
 };
 
 const SpinningTorus = (props) => {
-  // access Babylon scene objects with same React hook as regular DOM elements
-
   const boxRef = useRef(null);
-
-  const [clicked, setClicked] = useState(false);
-  useClick(() => setClicked((clicked) => !clicked), boxRef);
-
-  const [hovered, setHovered] = useState(false);
-  useHover(
-    () => setHovered(true),
-    () => setHovered(false),
-    boxRef
-  );
-
-  // This will rotate the box on every Babylon frame.
-  const rpm = 5;
-  useBeforeRender((scene) => {
-    if (boxRef.current) {
-      // Delta time smoothes the animation.
-      var deltaTimeInMillis = scene.getEngine().getDeltaTime();
-      boxRef.current.rotation.y +=
-        (rpm / 60) * Math.PI * 12 * (deltaTimeInMillis / 1000);
-    }
-  });
-
-  return (
-    <torus
-      name={props.name}
-      ref={boxRef}
-      size={2}
-      position={props.position}
-      scaling={clicked ? BiggerScale : DefaultScale}
-    >
-      <standardMaterial
-        name={`${props.name}-mat`}
-        // diffuseColor={hovered ? props.hoveredColor : props.color}
-        // specularColor={Color3.Black()}
-      >
-        {console.log("{props.tex}", props)}
-        <texture url={props.tex} />
-      </standardMaterial>
-    </torus>
-  );
-};
-
-const SpinningDisc = (props) => {
-  // access Babylon scene objects with same React hook as regular DOM elements
-
-  const boxRef = useRef(null);
-
-  const [clicked, setClicked] = useState(false);
-  useClick(() => setClicked((clicked) => !clicked), boxRef);
 
   const [hovered, setHovered] = useState(false);
   useHover(
@@ -132,12 +78,55 @@ const SpinningDisc = (props) => {
   });
 
   return (
+    <torus
+      name={props.name}
+      ref={boxRef}
+      size={2}
+      position={props.position}
+      scaling={DefaultScale}
+    >
+      <standardMaterial
+        name={`${props.name}-mat`}
+        // diffuseColor={hovered ? props.hoveredColor : props.color}
+        // specularColor={Color3.Black()}
+      >
+        {console.log("{props.tex}", props)}
+        <texture url={props.tex} />
+      </standardMaterial>
+    </torus>
+  );
+};
+
+const SpinningDisc = (props) => {
+  // access Babylon scene objects with same React hook as regular DOM elements
+
+  const boxRef = useRef(null);
+
+  const [hovered, setHovered] = useState(false);
+  useHover(
+    () => setHovered(true),
+    () => setHovered(false),
+    boxRef
+  );
+
+  // This will rotate the box on every Babylon frame.
+  const rpm = 5;
+  useBeforeRender((scene) => {
+    if (boxRef.current) {
+      // Delta time smoothes the animation.
+      var deltaTimeInMillis = scene.getEngine().getDeltaTime();
+      boxRef.current.rotation.y +=
+        (rpm / 60) * Math.PI * 24 * (deltaTimeInMillis / 1000);
+    }
+  });
+
+  return (
     <disc
       name={props.name}
       ref={boxRef}
       size={2}
       position={props.position}
-      scaling={clicked ? BiggerScale : DefaultScale}
+      scaling={DefaultScale}
     >
       <standardMaterial
         name={`${props.name}-mat`}
@@ -155,9 +144,6 @@ const SpinningSphere = (props) => {
   // access Babylon scene objects with same React hook as regular DOM elements
 
   const boxRef = useRef(null);
-
-  const [clicked, setClicked] = useState(false);
-  useClick(() => setClicked((clicked) => !clicked), boxRef);
 
   const [hovered, setHovered] = useState(false);
   useHover(
@@ -183,7 +169,7 @@ const SpinningSphere = (props) => {
       ref={boxRef}
       size={2}
       position={props.position}
-      scaling={clicked ? BiggerScale : DefaultScale}
+      scaling={DefaultScale}
     >
       <standardMaterial
         name={`${props.name}-mat`}
@@ -202,9 +188,6 @@ const SpinningBox = (props) => {
 
   const boxRef = useRef(null);
 
-  const [clicked, setClicked] = useState(false);
-  useClick(() => setClicked((clicked) => !clicked), boxRef);
-
   const [hovered, setHovered] = useState(false);
   useHover(
     () => setHovered(true),
@@ -229,7 +212,7 @@ const SpinningBox = (props) => {
       ref={boxRef}
       size={2}
       position={props.position}
-      scaling={clicked ? BiggerScale : DefaultScale}
+      scaling={DefaultScale}
     >
       <standardMaterial
         name={`${props.name}-mat`}
@@ -246,13 +229,7 @@ const SpinningBox = (props) => {
 // cuboid
 
 const SpinningCuboid = (props) => {
-  // access Babylon scene objects with same React hook as regular DOM elements
-
   const boxRef = useRef(null);
-
-  const [clicked, setClicked] = useState(false);
-  useClick(() => setClicked((clicked) => !clicked), boxRef);
-
   const [hovered, setHovered] = useState(false);
   useHover(
     () => setHovered(true),
@@ -277,7 +254,7 @@ const SpinningCuboid = (props) => {
       ref={boxRef}
       size={2}
       position={props.position}
-      scaling={clicked ? BiggerScale : DefaultCuboidScale}
+      scaling={DefaultCuboidScale}
     >
       <standardMaterial
         name={`${props.name}-mat`}

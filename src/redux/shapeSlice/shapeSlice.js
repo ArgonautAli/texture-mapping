@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = { value: { shapeVal: "Cuboid" } };
 export const shapeSlice = createSlice({
   name: "shape",
-  initialState: { value: { shapeVal: "" } },
+  initialState,
   reducers: {
     getShape: (state, action) => {
       state.value = action.payload;
     },
 
     clrShape: (state) => {
-      state = null;
+      state.value = initialState.value;
     },
   },
 });

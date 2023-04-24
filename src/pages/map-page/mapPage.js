@@ -13,21 +13,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { getImage } from "../../redux/imageSlice/imageSlice";
 import { useNavigate } from "react-router-dom";
 
-export default function MapPage() {
+function MapPage() {
   // const ref = createRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [imgData, setImgData] = useState();
   const ref = useRef();
   const data = useSelector((state) => state.image);
+  const [refresh, setRefresh] = useState(false);
 
   console.log("data", data);
-
-  // useEffect(()=>{
-
-  // }, [])
-
-  console.log("ref", ref);
 
   const createFileName = (extension = "", ...names) => {
     if (!extension) {
@@ -79,8 +74,10 @@ export default function MapPage() {
           </button>
         </div>
       </div>
-      {imgData ? <img src={imgData.href} width={100} height={100} /> : null}
+      {/* {imgData ? <img src={imgData.href} width={100} height={100} /> : null} */}
       {/* {imgData && <SceneWithSpinningBoxes tex={imgData?.href} />} */}
     </>
   );
 }
+
+export default MapPage;

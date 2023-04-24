@@ -1,5 +1,5 @@
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import "./mapContainer.css";
 
 function Map() {
@@ -8,6 +8,9 @@ function Map() {
     // googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
   const center = { lat: 18.52043, lng: 73.856743 };
+  // useEffect(() => {
+  //   window.location.reload();
+  // }, []);
 
   console.log("loader", isLoaded);
   return (
