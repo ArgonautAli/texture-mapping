@@ -7,7 +7,7 @@ function Map() {
     id: "google-map-script",
     // googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
-  const center = { lat: 18.52043, lng: 73.856743 };
+  const center = { lat: 28.7041, lng: 77.1025 };
   // useEffect(() => {
   //   window.location.reload();
   // }, []);
