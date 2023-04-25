@@ -286,7 +286,7 @@ export function SceneWithSpinningBoxes({ tex }) {
             />
             <hemisphericLight
               name="light1"
-              intensity={3}
+              intensity={4}
               direction={Vector3.Up()}
             />
             {shapeData === "Cube" && (

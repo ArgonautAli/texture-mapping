@@ -65,8 +65,12 @@ function MapPage() {
         </div>
         <div className="text-container-map">
           <ul>
-            <li>1. Navigate to area of the map you want to capture</li>
-            <li>2. Click on continue button</li>
+            <li className="list-elements-noHover">
+              1. Navigate to area of the map you want to capture
+            </li>
+            <li className="list-elements-noHover">
+              2. Click on continue button
+            </li>
           </ul>
 
           <button onClick={downloadScreenshot} className="get-started-btn mt-4">

@@ -30,3 +30,7 @@
   align-items: center;
   cursor: pointer;
 }
+
+.get-started-btn:hover {
+  transform: translate3D(0, -1px, 0) scale(1.03);
+}
