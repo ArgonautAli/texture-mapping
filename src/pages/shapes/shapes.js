@@ -24,6 +24,7 @@ function Shapes() {
         <div className="list-container gap-y-6">
           <ul>
             <p className="select-shape-text"> Select Shape</p>
+            <hr />
             {list.map((el) => {
               return (
                 <li
