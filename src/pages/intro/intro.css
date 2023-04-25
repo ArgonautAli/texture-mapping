@@ -1,36 +1,78 @@
-.intro-container {
-  display: flex;
-  justify-content: center;
-  padding: 60px;
-  flex-direction: column;
+@media only screen and (min-width: 600px) {
+  .intro-container {
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+    flex-direction: column;
+  }
+
+  .intro-container-upper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .heading-text {
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .get-started-btn {
+    display: flex;
+    justify-content: center;
+    background-color: #901027;
+    font-weight: 500;
+    color: white;
+    width: 160px;
+    height: 44px;
+    border-radius: 24px;
+    align-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .get-started-btn:hover {
+    transform: translate3D(0, -1px, 0) scale(1.03);
+  }
 }
 
-.intro-container-upper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@media only screen and (max-width: 600px) {
+  .intro-container {
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+    flex-direction: column;
+  }
 
-.heading-text {
-  font-family: sans-serif;
-  font-size: 36px;
-  font-weight: 700;
-}
+  .intro-container-upper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.get-started-btn {
-  display: flex;
-  justify-content: center;
-  background-color: #901027;
-  font-weight: 500;
-  color: white;
-  width: 160px;
-  height: 44px;
-  border-radius: 24px;
-  align-content: center;
-  align-items: center;
-  cursor: pointer;
-}
+  .heading-text {
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    flex-direction: column;
+  }
 
-.get-started-btn:hover {
-  transform: translate3D(0, -1px, 0) scale(1.03);
+  .get-started-btn {
+    display: flex;
+    justify-content: center;
+    background-color: #901027;
+    font-weight: 500;
+    color: white;
+    width: 160px;
+    height: 44px;
+    border-radius: 24px;
+    align-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .get-started-btn:hover {
+    transform: translate3D(0, -1px, 0) scale(1.03);
+  }
 }
